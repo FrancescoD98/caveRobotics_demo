@@ -1,0 +1,7 @@
+
+
+<launch>
+  <group ns="pose_regulation_ros1">
+      <node pkg="pose_regulation_ros1" type="pose_regulation_ros1" name="pose_regulation_ros1" output="screen" />
+  </group>
+</launch>
