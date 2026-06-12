@@ -3,6 +3,7 @@ project(pose_regulation_ros1)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   geometry_msgs
+  std_msgs
 )
 
 catkin_python_setup()
@@ -11,6 +12,7 @@ catkin_package(
   CATKIN_DEPENDS
   rospy
   geometry_msgs
+  std_msgs
 )
 
 include_directories(

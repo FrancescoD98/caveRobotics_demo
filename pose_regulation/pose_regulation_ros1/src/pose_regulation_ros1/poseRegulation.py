@@ -2,8 +2,8 @@ import numpy as np
 import rospy
 import math
 
-from trajectory_msgs.msg import JointTrajectory
 from gazebo_msgs.msg import ModelStates
+from std_msgs.msg import Float64MultiArray
 from geometry_msgs.msg import Twist 
 
 from pose_regulation_ros1 import params
@@ -18,6 +18,7 @@ class poseRegulation:
 
         # ROS subscribers
         self.base_odom_subscriber = rospy.Subscriber('/gazebo/model_states', ModelStates, self.model_state_callback)
+        self.target_base_subscriber = rospy.Subscriber('/target_base', Float64MultiArray, self.target_base_callback)
         
         # ROS publishers
         self.velocity_publisher = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
@@ -58,6 +59,15 @@ class poseRegulation:
         # Publish a twist ROS message:
         self.velocity_publisher.publish(msg_twist)
         print('v: ', v_des, ' w: ', w_des)
+        return
+    
+    def target_base_callback(self, msg):
+        if len(msg.data) != 3:
+            rospy.logerr('Received target base configuration has wrong size. Expected 3 of the form (x, y, theta), got ' + str(len(msg.data)) + ' of the form ' + str(msg.data))
+            return
+        params.q_base_des[0] = msg.data[0]
+        params.q_base_des[1] = msg.data[1]
+        params.q_base_des[2] = msg.data[2]
         return
 
 
