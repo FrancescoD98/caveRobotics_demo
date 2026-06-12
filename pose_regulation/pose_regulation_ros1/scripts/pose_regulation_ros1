@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
-import pose_regulation_ros1.poseRegulation
+import pose_regulation_ros1.poseRegulation as simulation
+
 if __name__ == '__main__':
-    pose_regulation_ros1.poseRegulation.main()
+    simulation.main()

@@ -3,11 +3,15 @@
 
 ## Installation
 
-### With Docker (if ubuntu 20)
+### With Docker (if on ubuntu systems)
 
 Install the docker image with the `tiago_public_ws` folder following the guide in [this github repository](https://github.com/DIAG-Robotics-Lab/labrob_tiago_docker).
 
 The `tiago_public_ws` folder is in the root of the docker container created with the tutorial.
+
+### Use Windows WLS (if on Windows systems)
+
+in this case install WLS on your Window machine and follow the install an Ubuntu 20 image. Then follow the next section
 
 ### Directy on Ubuntu 20
 

@@ -42,8 +42,8 @@ class poseRegulation:
                 # the orientation is a quaternion (qx, qy, qz, qw)
                 quat = msg.pose[i].orientation
                 self.q[2] = math.atan2( # theta 
-                2.0 * (quat.w * quat.z + quat.x * quat.y),
-                1.0 - 2.0 * (quat.y * quat.y + quat.z * quat.z)
+                    2.0 * (quat.w * quat.z + quat.x * quat.y),
+                    1.0 - 2.0 * (quat.y * quat.y + quat.z * quat.z)
                 )
     
     def publish_base_command(self, v_des, w_des):
