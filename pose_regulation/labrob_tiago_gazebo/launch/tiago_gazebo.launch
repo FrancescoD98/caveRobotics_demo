@@ -21,6 +21,7 @@
   <arg name="use_moveit_camera" default="false"/>
   <arg name="use_dynamic_footprint" default="false"/>
   <arg name="base_type" default="pmb2"/>
+  <arg name="rviz" default="false"/>
 
   <env name="LC_NUMERIC" value="C" />
 
@@ -78,6 +79,10 @@
       <node name="tuck_arm" pkg="tiago_gazebo" type="tuck_arm.py" output="screen"/>
   </group>
   <node name="image_proc" pkg="image_proc" type="image_proc" ns="xtion/rgb"/>
+
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find labrob_tiago_gazebo)/rviz/robot.rviz" output="screen"/>
+  </group>
 
 
 </launch>

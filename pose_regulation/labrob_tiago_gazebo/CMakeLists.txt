@@ -11,3 +11,7 @@ include_directories(
 # include
 # ${catkin_INCLUDE_DIRS}
 )
+
+install(DIRECTORY launch rviz
+	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)

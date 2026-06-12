@@ -20,7 +20,7 @@ class poseRegulation:
         self.base_odom_subscriber = rospy.Subscriber('/gazebo/model_states', ModelStates, self.model_state_callback)
         
         # ROS publishers
-        self.velocity_publisher     = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
+        self.velocity_publisher = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
         
         # time step of the node
         self.freq = freq

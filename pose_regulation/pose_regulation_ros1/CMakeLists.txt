@@ -18,6 +18,6 @@ include_directories(
 )
 
 install(PROGRAMS
-  # scripts/pose_regulation_ros1
+  scripts/pose_regulation_ros1
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
